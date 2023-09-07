@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        button {
+            background-color: chocolate;
+        }
+    </style>
+    <script>
+        function mostrarDatos() {
+            var vapellido = document.getElementById("apellido").value;
+            var vnombre = document.getElementById("nombre").value;
+            var vdni = document.getElementById("dni").value;
+            var vfecha = document.getElementById("fecha").value;
+            var vdomicilio = document.getElementById("domicilio").value;
+            var vlocalidad = document.getElementById("localidad").value;
+            var vidioma = "";
+            var radios = document.getElementsByName("lenguajes");
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    vidioma = radios[i].value;
+                    break;
+                }
+            }
+            var vopc1 = document.getElementById("opc1").checked ? "Sí" : "No";
+            var vopc2 = document.getElementById("opc2").checked ? "Sí" : "No";
+            var vopc3 = document.getElementById("opc3").checked ? "Sí" : "No";
+            var vopc4 = document.getElementById("opc4").checked ? "Sí" : "No";
+            
+            document.write("Datos Ingresados: </br>");
+            document.write("Nombre: " + vnombre + "</br>")
+            document.write("Apellido: " + vapellido + "</br>")
+            document.write("DNI: " + vdni + "</br>")
+            document.write("Fecha de nacimiento: " + vfecha + "</br>")
+            document.write("Domicilio: " + vdomicilio + "</br>")
+            document.write("Localidad: " + vlocalidad + "</br>")
+            document.write("Idioma que conoce: " + vidioma + "</br>")
+            document.write("Nivel de conocimiento en Español: " + vopc1 + "</br>")
+            document.write("Nivel de conocimiento en Ingles: " + vopc2 + "</br>")
+            document.write("Nivel de conocimiento en Frances: " + vopc3 + "</br>")
+            document.write("Nivel de conocimiento en Chino: " + vopc4 + "</br>")
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Formulario de Carga de Datos</h1>
+
+    <form action=" " method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre">
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido">
+        <p></p>
+        <br>
+        <label for="dni">Numero de DNI:</label>
+        <input type="number" name="dni" id="dni">
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" name="fecha" id="fecha">
+        <p></p>
+        <br>
+        <label for="domicilio">Domicilio:</label>
+        <input type="text" name="domicilio" id="domicilio">
+        <label for="localidad">Localidad:</label>
+        <input type="text" name="localidad" id="localidad">
+        <p></p>
+        <br>
+        <h2>Idiomas que conoce</h2>
+        <input type="checkbox" name="lenguajes" id="opc1" value="espanol">
+        <label for="opc1">Español</label>
+        <input type="range" name="nivel_espanol" id="nivel_espanol">
+        <br>
+        <input type="checkbox" name="lenguajes" id="opc2" value="ingles">
+        <label for="opc2">Inglés</label>
+        <input type="range" name="nivel_ingles" id="nivel_ingles">
+        <br>
+        <input type="checkbox" name="lenguajes" id="opc3" value="frances">
+        <label for="opc3">Francés</label>
+        <input type="range" name="nivel_frances" id="nivel_frances">
+        <br>
+        <input type="checkbox" name="lenguajes" id="opc4" value="chino">
+        <label for="opc4">Chino</label>
+        <input type="range" name="nivel_chino" id="nivel_chino">
+        <br>
+        <p></p>
+        <button type="reset">Borrar</button>
+        <button type="button" onclick="mostrarDatos()">Enviar y Mostrar</button>
+    </form>
+</body>
+
+</html>
